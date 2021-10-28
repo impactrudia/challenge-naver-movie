@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textMarginHorizontalDefault">20dp</dimen>
+    <dimen name="textMarginTopDefault">30dp</dimen>
+    <dimen name="buttonHeightDefault">56dp</dimen>
+    <dimen name="progressBarSize">45dp</dimen>
+    <dimen name="itemHeightDefault">50dp</dimen>
+    <dimen name="imageSplashIcon">150dp</dimen>
+</resources>

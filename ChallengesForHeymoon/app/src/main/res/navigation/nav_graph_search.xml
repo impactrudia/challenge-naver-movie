@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/fragment_choose_genre">
+
+    <fragment
+        android:id="@+id/fragment_choose_genre"
+        android:name="com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseGenreFragment"
+        tools:layout="@layout/fragment_choose_genre">
+        <action
+            android:id="@+id/action_fragment_choose_genre_to_fragment_nation"
+            app:destination="@id/fragment_choose_nation" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_choose_nation"
+        android:name="com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseNationFragment"
+        tools:layout="@layout/fragment_choose_nation">
+        <action
+            android:id="@+id/action_fragment_choose_nation_to_fragment_keyword_summary"
+            app:destination="@id/fragment_keyword_summary" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_keyword_summary"
+        android:name="com.happymoonday.challengesforheymoon.presentation.ui.search.SearchKeywordSummaryFragment"
+        tools:layout="@layout/fragment_search_keyword_summary">
+        <action
+            android:id="@+id/action_fragment_keyword_summary_to_fragment_keyword_results"
+            app:destination="@id/fragment_keyword_results" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_keyword_results"
+        android:name="com.happymoonday.challengesforheymoon.presentation.ui.search.SearchResultFragment"
+        tools:layout="@layout/fragment_search_results">
+    </fragment>
+
+
+</navigation>
