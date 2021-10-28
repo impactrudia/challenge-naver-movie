@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/fragment_choose_genre">
+    app:startDestination="@+id/fragment_home_view_pager">
 
     <fragment
-        android:id="@+id/fragment_choose_genre"
+        android:id="@+id/fragment_home_view_pager"
         android:name="com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseGenreFragment"
         tools:layout="@layout/fragment_choose_genre">
         <action

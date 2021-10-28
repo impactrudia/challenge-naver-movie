@@ -12,9 +12,6 @@ class HomeActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.btnSearchKeyword.setOnClickListener {
-        }
     }
 
 }
