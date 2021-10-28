@@ -12,6 +12,20 @@ class SearchActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.apply {
+            toolbar?.let {toolbar->
+                setSupportActionBar(toolbar)
+                supportActionBar?.run {
+                    setDisplayShowTitleEnabled(false)
+                    setDisplayHomeAsUpEnabled(true)
+                    setHomeButtonEnabled(true)
+                }
+                toolbar.setNavigationOnClickListener {
+                    onBackPressed()
+                }
+            }
+        }
     }
 
 }
