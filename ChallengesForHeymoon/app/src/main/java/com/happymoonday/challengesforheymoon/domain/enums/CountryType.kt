@@ -7,5 +7,11 @@ enum class CountryType(var id: String, var type: String) {
     HONG_KONG("HK","홍콩"),
     UK("GB","영국"),
     FRANCE("FR","프랑스"),
-    OTHERS("ETC","기타")
+    OTHERS("ETC","기타");
+
+    companion object {
+        fun findNationTypeList(): List<CountryType> {
+            return CountryType.values().toList()
+        }
+    }
 }

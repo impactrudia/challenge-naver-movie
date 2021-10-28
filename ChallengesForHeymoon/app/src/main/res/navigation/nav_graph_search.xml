@@ -2,10 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    app:startDestination="@+id/fragment_home_view_pager">
+    app:startDestination="@id/fragment_choose_genre">
 
     <fragment
-        android:id="@+id/fragment_home_view_pager"
+        android:id="@+id/fragment_choose_genre"
         android:name="com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseGenreFragment"
         tools:layout="@layout/fragment_choose_genre">
         <action
@@ -36,6 +36,5 @@
         android:name="com.happymoonday.challengesforheymoon.presentation.ui.search.SearchResultFragment"
         tools:layout="@layout/fragment_search_results">
     </fragment>
-
 
 </navigation>

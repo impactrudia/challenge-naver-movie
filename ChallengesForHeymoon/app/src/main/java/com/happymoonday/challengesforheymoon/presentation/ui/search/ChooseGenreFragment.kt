@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.ChooseGenreAdapter
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseGenreBinding
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
@@ -19,14 +20,19 @@ class ChooseGenreFragment : Fragment() {
     ): View? {
         binding = FragmentChooseGenreBinding.inflate(inflater, container, false)
 
-        val adapter = ChooseGenreAdapter()
-        binding.recyclerView.adapter = adapter
+        binding.apply {
+            textTitle.text = getString(R.string.msg_result_search_term, "test")//TODO FIX
 
-        subscribeUi(adapter)
+            val adapter = ChooseGenreAdapter()
+            recyclerView.adapter = adapter
+
+            subscribeUi(adapter)
+        }
+
         return binding.root
     }
 
-    private fun subscribeUi(adapter: ChooseGenreAdapter){
+    private fun subscribeUi(adapter: ChooseGenreAdapter) {
         val items = GenreType.findGenreTypeList()//TODO CHANGE
         adapter.submitList(items)
     }

@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.databinding.ItemChooseNationBinding
-import com.happymoonday.challengesforheymoon.domain.enums.GenreType
-import com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseGenreFragmentDirections
+import com.happymoonday.challengesforheymoon.domain.enums.CountryType
 import com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseNationFragmentDirections
 
-class ChooseGenreAdapter :
-    ListAdapter<GenreType, ChooseGenreAdapter.ChooseViewHolder>(
-        ChooseNationDiffCallback()
+class ChooseNationAdapter :
+    ListAdapter<CountryType, ChooseNationAdapter.ChooseViewHolder>(
+        ChooseDiffCallback()
     ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseViewHolder {
@@ -44,11 +43,11 @@ class ChooseGenreAdapter :
         }
 
         private fun navigateToNation(view: View){
-            val action = ChooseGenreFragmentDirections.actionFragmentChooseGenreToFragmentNation()
+            val action = ChooseNationFragmentDirections.actionFragmentChooseNationToFragmentKeywordSummary()
             view.findNavController().navigate(action)
         }
 
-        fun bind(genreType: GenreType) {
+        fun bind(countryType: CountryType) {
             with(binding) {
                 executePendingBindings()
             }
@@ -57,12 +56,12 @@ class ChooseGenreAdapter :
 
 }
 
-private class ChooseNationDiffCallback : DiffUtil.ItemCallback<GenreType>() {
-    override fun areItemsTheSame(oldItem: GenreType, newItem: GenreType): Boolean {
+private class ChooseDiffCallback : DiffUtil.ItemCallback<CountryType>() {
+    override fun areItemsTheSame(oldItem: CountryType, newItem: CountryType): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: GenreType, newItem: GenreType): Boolean {
+    override fun areContentsTheSame(oldItem: CountryType, newItem: CountryType): Boolean {
         return oldItem == newItem
     }
 }

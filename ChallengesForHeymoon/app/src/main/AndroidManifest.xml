@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.ChallengesForHeymoon">
+
         <activity
             android:name=".presentation.ui.splash.SplashActivity">
             <intent-filter>
@@ -22,22 +23,16 @@
         <activity
             android:name=".presentation.ui.movieinfo.MovieInfoActivity"
             android:exported="true" >
-
         </activity>
         <activity
             android:name=".presentation.ui.search.SearchActivity"
             android:exported="true" >
-
         </activity>
         <activity
             android:name=".presentation.ui.home.HomeActivity"
             android:exported="true">
-
         </activity>
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
 
 </manifest>
