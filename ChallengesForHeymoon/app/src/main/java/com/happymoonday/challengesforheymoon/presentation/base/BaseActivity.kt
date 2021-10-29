@@ -7,14 +7,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatDialog
 import com.happymoonday.challengesforheymoon.R
 
-abstract class BaseActivity() : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
     var progressDialog: AppCompatDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        progressDialog = AppCompatDialog(this, R.style.Theme_AppCompat)
+        progressDialog = AppCompatDialog(this, R.style.Theme_ProgressBar)
         progressDialog!!.setCancelable(false)
         progressDialog!!.setContentView(R.layout.dialog_progress)
         progressDialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
