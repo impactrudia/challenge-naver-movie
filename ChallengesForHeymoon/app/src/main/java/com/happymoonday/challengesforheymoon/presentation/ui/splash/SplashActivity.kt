@@ -22,6 +22,7 @@ class SplashActivity : BaseActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, HomeActivity::class.java))
             hideProgress()
+            finish()
         }, SPLASH_DELAY)
     }
 
