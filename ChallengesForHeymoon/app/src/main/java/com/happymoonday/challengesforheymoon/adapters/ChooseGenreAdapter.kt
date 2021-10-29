@@ -9,21 +9,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.happymoonday.challengesforheymoon.R
-import com.happymoonday.challengesforheymoon.databinding.ItemChooseNationBinding
+import com.happymoonday.challengesforheymoon.databinding.ItemChooseGenreBinding
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
 import com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseGenreFragmentDirections
-import com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseNationFragmentDirections
 
 class ChooseGenreAdapter :
-    ListAdapter<GenreType, ChooseGenreAdapter.ChooseViewHolder>(
-        ChooseNationDiffCallback()
-    ) {
+    ListAdapter<GenreType, ChooseGenreAdapter.ChooseViewHolder>(ChooseGenreDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseViewHolder {
         return ChooseViewHolder(
             DataBindingUtil.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.item_choose_nation,
+                R.layout.item_choose_genre,
                 parent,
                 false
             )
@@ -35,21 +32,22 @@ class ChooseGenreAdapter :
     }
 
     class ChooseViewHolder(
-        private val binding: ItemChooseNationBinding
-    ) : RecyclerView.ViewHolder(binding.root){
+        private val binding: ItemChooseGenreBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener { view ->
                 navigateToNation(view)
             }
         }
 
-        private fun navigateToNation(view: View){
+        private fun navigateToNation(view: View) {
             val action = ChooseGenreFragmentDirections.actionFragmentChooseGenreToFragmentNation()
             view.findNavController().navigate(action)
         }
 
         fun bind(genreType: GenreType) {
             with(binding) {
+                item = genreType
                 executePendingBindings()
             }
         }
@@ -57,7 +55,7 @@ class ChooseGenreAdapter :
 
 }
 
-private class ChooseNationDiffCallback : DiffUtil.ItemCallback<GenreType>() {
+private class ChooseGenreDiffCallback : DiffUtil.ItemCallback<GenreType>() {
     override fun areItemsTheSame(oldItem: GenreType, newItem: GenreType): Boolean {
         return oldItem.id == newItem.id
     }

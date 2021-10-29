@@ -23,7 +23,7 @@ class ChooseGenreFragment : BaseFragment() {
         binding = FragmentChooseGenreBinding.inflate(inflater, container, false)
 
         binding.apply {
-            textTitle.text = getString(R.string.msg_result_search_term, "test")//TODO FIX
+            textTitle.text = getString(R.string.msg_result_search_term, viewModel.movie?.keyword)//TODO FIX
 
             val adapter = ChooseGenreAdapter()
             recyclerView.adapter = adapter
@@ -32,7 +32,6 @@ class ChooseGenreFragment : BaseFragment() {
         }
 
         viewModel.movie?.keyword = "test" //TODO FIX
-        viewModel.movie?.genre = GenreType.ACTION
 
         return binding.root
     }

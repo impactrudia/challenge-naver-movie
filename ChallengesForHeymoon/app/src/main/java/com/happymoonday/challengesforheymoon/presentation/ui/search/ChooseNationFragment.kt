@@ -27,14 +27,12 @@ class ChooseNationFragment : BaseFragment() {
         binding = FragmentChooseNationBinding.inflate(inflater, container, false)
 
         binding.apply {
-            textTitle.text = getString(R.string.msg_result_select_country, "test")//TODO FIX
+            textTitle.text = getString(R.string.msg_result_select_country, viewModel.movie?.genre?.toDescription)
 
             val adapter = ChooseNationAdapter()
             recyclerView.adapter = adapter
 
             subscribeUi(adapter)
-
-            viewModel.movie?.nation = CountryType.FRANCE //TODO FIX
         }
 
         return binding.root

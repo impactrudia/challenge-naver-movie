@@ -14,9 +14,7 @@ import com.happymoonday.challengesforheymoon.domain.enums.CountryType
 import com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseNationFragmentDirections
 
 class ChooseNationAdapter :
-    ListAdapter<CountryType, ChooseNationAdapter.ChooseViewHolder>(
-        ChooseDiffCallback()
-    ) {
+    ListAdapter<CountryType, ChooseNationAdapter.ChooseViewHolder>(ChooseNationDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseViewHolder {
         return ChooseViewHolder(
@@ -49,6 +47,7 @@ class ChooseNationAdapter :
 
         fun bind(countryType: CountryType) {
             with(binding) {
+                item = countryType
                 executePendingBindings()
             }
         }
@@ -56,7 +55,7 @@ class ChooseNationAdapter :
 
 }
 
-private class ChooseDiffCallback : DiffUtil.ItemCallback<CountryType>() {
+private class ChooseNationDiffCallback : DiffUtil.ItemCallback<CountryType>() {
     override fun areItemsTheSame(oldItem: CountryType, newItem: CountryType): Boolean {
         return oldItem.id == newItem.id
     }
