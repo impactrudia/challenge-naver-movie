@@ -1,20 +1,18 @@
 package com.happymoonday.challengesforheymoon.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.databinding.ItemChooseNationBinding
 import com.happymoonday.challengesforheymoon.domain.enums.CountryType
-import com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseNationFragmentDirections
 
-class ChooseNationAdapter :
-    ListAdapter<CountryType, ChooseNationAdapter.ChooseViewHolder>(ChooseNationDiffCallback()) {
+class ChooseNationAdapter(
+    private val onClick: (CountryType) -> Unit
+): ListAdapter<CountryType, ChooseNationAdapter.ChooseViewHolder>(ChooseNationDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseViewHolder {
         return ChooseViewHolder(
@@ -23,7 +21,8 @@ class ChooseNationAdapter :
                 R.layout.item_choose_nation,
                 parent,
                 false
-            )
+            ),
+            onClick
         )
     }
 
@@ -32,22 +31,16 @@ class ChooseNationAdapter :
     }
 
     class ChooseViewHolder(
-        private val binding: ItemChooseNationBinding
+        private val binding: ItemChooseNationBinding,
+        private val onClick: (CountryType) -> Unit
     ) : RecyclerView.ViewHolder(binding.root){
-        init {
-            binding.setClickListener { view ->
-                navigateToNation(view)
-            }
-        }
-
-        private fun navigateToNation(view: View){
-            val action = ChooseNationFragmentDirections.actionFragmentChooseNationToFragmentKeywordSummary()
-            view.findNavController().navigate(action)
-        }
 
         fun bind(countryType: CountryType) {
             with(binding) {
                 item = countryType
+                setClickListener {
+                    onClick(countryType)
+                }
                 executePendingBindings()
             }
         }

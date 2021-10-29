@@ -1,7 +1,6 @@
 package com.happymoonday.challengesforheymoon.presentation.ui.search
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +8,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
-import com.happymoonday.challengesforheymoon.adapters.ChooseNationAdapter
 import com.happymoonday.challengesforheymoon.adapters.SearchMovieAdapter
 import com.happymoonday.challengesforheymoon.databinding.FragmentSearchResultsBinding
-import com.happymoonday.challengesforheymoon.domain.enums.CountryType
 import com.happymoonday.challengesforheymoon.domain.model.Movie
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
 
@@ -20,6 +17,12 @@ class SearchResultFragment : BaseFragment() {
 
     override lateinit var binding: FragmentSearchResultsBinding
     override val viewModel: SearchViewModel by navGraphViewModels(R.id.nav_graph_search_xml)
+
+    private val adapter by lazy {
+        SearchMovieAdapter {
+            showFavoriteAlert()
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +35,6 @@ class SearchResultFragment : BaseFragment() {
                 showFavoriteAlert()
             }
 
-            val adapter = SearchMovieAdapter()
             recyclerView.adapter = adapter
 
             subscribeUi(adapter)

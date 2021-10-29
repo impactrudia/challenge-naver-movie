@@ -6,7 +6,7 @@ import com.happymoonday.challengesforheymoon.presentation.base.BaseActivity
 
 class SearchActivity : BaseActivity() {
 
-    private lateinit var binding : ActivitySearchBinding
+    private lateinit var binding: ActivitySearchBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,7 +14,7 @@ class SearchActivity : BaseActivity() {
         setContentView(binding.root)
 
         binding.apply {
-            toolbar?.let {toolbar->
+            toolbar?.let { toolbar ->
                 setSupportActionBar(toolbar)
                 supportActionBar?.run {
                     setDisplayShowTitleEnabled(false)

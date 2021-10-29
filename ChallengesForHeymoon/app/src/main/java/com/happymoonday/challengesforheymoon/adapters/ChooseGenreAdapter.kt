@@ -1,20 +1,18 @@
 package com.happymoonday.challengesforheymoon.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.databinding.ItemChooseGenreBinding
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
-import com.happymoonday.challengesforheymoon.presentation.ui.search.ChooseGenreFragmentDirections
 
-class ChooseGenreAdapter :
-    ListAdapter<GenreType, ChooseGenreAdapter.ChooseViewHolder>(ChooseGenreDiffCallback()) {
+class ChooseGenreAdapter(
+    private val onClick: (GenreType) -> Unit
+) : ListAdapter<GenreType, ChooseGenreAdapter.ChooseViewHolder>(ChooseGenreDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseViewHolder {
         return ChooseViewHolder(
@@ -23,7 +21,8 @@ class ChooseGenreAdapter :
                 R.layout.item_choose_genre,
                 parent,
                 false
-            )
+            ),
+            onClick
         )
     }
 
@@ -32,22 +31,16 @@ class ChooseGenreAdapter :
     }
 
     class ChooseViewHolder(
-        private val binding: ItemChooseGenreBinding
+        private val binding: ItemChooseGenreBinding,
+        private val onClick: (GenreType) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-        init {
-            binding.setClickListener { view ->
-                navigateToNation(view)
-            }
-        }
-
-        private fun navigateToNation(view: View) {
-            val action = ChooseGenreFragmentDirections.actionFragmentChooseGenreToFragmentNation()
-            view.findNavController().navigate(action)
-        }
 
         fun bind(genreType: GenreType) {
             with(binding) {
                 item = genreType
+                setClickListener {
+                    onClick(genreType)
+                }
                 executePendingBindings()
             }
         }
