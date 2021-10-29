@@ -10,6 +10,28 @@
         android:layout_height="match_parent"
         tools:context=".presentation.ui.search.SearchKeywordSummaryFragment">
 
+        <TextView
+            android:id="@+id/textTitle"
+            android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/textMarginTopDefault"
+            android:layout_marginHorizontal="@dimen/textMarginHorizontalDefault"
+            android:text="@string/information_summary_screen"/>
+
+        <TextView
+            android:id="@+id/textSummary"
+            android:textAppearance="@android:style/TextAppearance.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textMarginTopDefault"
+            android:layout_marginHorizontal="@dimen/textMarginHorizontalDefault"
+            app:layout_constraintTop_toBottomOf="@id/textTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="- 입력한 검색어 : \n- 선택한 장르 : \n- 선택한 국가 :"/>
+
         <Button
             android:id="@+id/btnSearchMovie"
             android:layout_width="match_parent"

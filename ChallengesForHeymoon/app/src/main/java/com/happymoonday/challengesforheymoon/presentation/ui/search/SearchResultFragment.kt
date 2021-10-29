@@ -6,12 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.databinding.FragmentSearchResultsBinding
+import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
 
-class SearchResultFragment : Fragment() {
+class SearchResultFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentSearchResultsBinding
+    override lateinit var binding: FragmentSearchResultsBinding
+    override val viewModel: SearchViewModel by navGraphViewModels(R.id.nav_graph_search_xml)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

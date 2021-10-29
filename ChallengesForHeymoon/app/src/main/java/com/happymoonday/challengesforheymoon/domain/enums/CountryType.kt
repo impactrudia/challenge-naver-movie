@@ -1,6 +1,6 @@
 package com.happymoonday.challengesforheymoon.domain.enums
 
-enum class CountryType(var id: String, var type: String) {
+enum class CountryType(var id: String, var toDescription: String) {
     KOREA("KR","한국"),
     JAPAN("JP","일본"),
     UNITED_STATES("US","미국"),

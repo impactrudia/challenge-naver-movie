@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.ChooseGenreAdapter
 import com.happymoonday.challengesforheymoon.adapters.ChooseNationAdapter
@@ -12,10 +13,12 @@ import com.happymoonday.challengesforheymoon.databinding.FragmentChooseGenreBind
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseNationBinding
 import com.happymoonday.challengesforheymoon.domain.enums.CountryType
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
+import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
 
-class ChooseNationFragment : Fragment() {
+class ChooseNationFragment : BaseFragment() {
 
-    private lateinit var binding: FragmentChooseNationBinding
+    override lateinit var binding: FragmentChooseNationBinding
+    override val viewModel: SearchViewModel by navGraphViewModels(R.id.nav_graph_search_xml)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,6 +33,8 @@ class ChooseNationFragment : Fragment() {
             recyclerView.adapter = adapter
 
             subscribeUi(adapter)
+
+            viewModel.movie?.nation = CountryType.FRANCE //TODO FIX
         }
 
         return binding.root

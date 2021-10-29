@@ -11,6 +11,7 @@
     <string name="msg_result_select_country">선택한 장르는 %s 입니다.\n국가를 선택해주세요.</string>
     <string name="choose_country">국가 선택</string>
     <string name="information_summary_screen">정보 요약 화면</string>
+    <string name="search_keyword_summary">- 입력한 검색어 : %s \n- 선택한 장르 : %s \n- 선택한 국가 : %s</string>
     <string name="entered_search_term">입력한 검색어</string>
     <string name="selected_genre">선택한 장르</string>
     <string name="selected_country">선택한 국가</string>
