@@ -45,6 +45,15 @@ class FavoriteMoviesFragment : Fragment() {
             recyclerView.adapter = adapter
         }
 
+        return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getAllMovie()
+    }
+
+    private fun getAllMovie() {
         CoroutineScope(Dispatchers.Default).launch {
             val movies = db.movieDao().getAll()
             requireActivity().runOnUiThread {
@@ -54,8 +63,6 @@ class FavoriteMoviesFragment : Fragment() {
                 }
             }
         }
-
-        return binding.root
     }
 
     private fun subscribeUi(adapter: SearchMovieAdapter, movies: List<Movie>) {
