@@ -24,15 +24,13 @@ class SearchResultFragment : BaseFragment() {
 
     override lateinit var binding: FragmentSearchResultsBinding
     override val viewModel: SearchViewModel by navGraphViewModels(R.id.nav_graph_search_xml)
-    /**
-     * database instance
-     */
     lateinit var db: AppDatabase
-
     private val adapter by lazy {
-        SearchMovieAdapter {
+        SearchMovieAdapter({
             showFavoriteAlert(it)
-        }
+        },{
+
+        })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

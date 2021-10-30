@@ -15,4 +15,7 @@ interface MovieDao {
 
     @Insert
     suspend fun insertMovie(movie: Movie)
+
+    @Query("DELETE FROM movie WHERE uuid = :uuid")
+    fun deleteByUserId(uuid: Int)
 }

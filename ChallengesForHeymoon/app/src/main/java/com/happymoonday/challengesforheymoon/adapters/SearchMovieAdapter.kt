@@ -10,8 +10,10 @@ import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.databinding.ItemMovieFavoritesBinding
 import com.happymoonday.challengesforheymoon.domain.model.Movie
 
+
 class SearchMovieAdapter(
-    private val onClick: (Movie) -> Unit
+    private val onClick: (Movie) -> Unit,
+    private val onLongClick: (Movie) -> Unit
 ) : ListAdapter<Movie, SearchMovieAdapter.ViewHolder>(ChooseMovieDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,7 +24,8 @@ class SearchMovieAdapter(
                 parent,
                 false
             ),
-            onClick
+            onClick,
+            onLongClick
         )
     }
 
@@ -32,7 +35,8 @@ class SearchMovieAdapter(
 
     class ViewHolder(
         private val binding: ItemMovieFavoritesBinding,
-        private val onClick: (Movie) -> Unit
+        private val onClick: (Movie) -> Unit,
+        private val onLongClick: (Movie) -> Unit
     ) : RecyclerView.ViewHolder(binding.root){
 
         fun bind(movie: Movie) {
@@ -41,13 +45,17 @@ class SearchMovieAdapter(
                 setClickListener {
                     onClick(movie)
                 }
+                root.setOnLongClickListener {
+                    onLongClick(movie)
+                    true
+                }
                 executePendingBindings()
             }
         }
+
     }
 
 }
-
 
 private class ChooseMovieDiffCallback : DiffUtil.ItemCallback<Movie>() {
     override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
