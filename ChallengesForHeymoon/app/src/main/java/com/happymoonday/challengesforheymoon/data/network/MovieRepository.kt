@@ -7,6 +7,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
  * API 공통 모듈
  */
 class MovieRepository private constructor() {
+
     companion object {
         @Volatile
         private var instance: MovieRepository? = null
@@ -20,6 +21,7 @@ class MovieRepository private constructor() {
         ServiceFactory().getOrganApi()
     }
 
-    fun searchMovies(reqMovie: ReqMovie?) = organApi.searchMovies(reqMovie?.keyword?:"", reqMovie?.genre?.name, reqMovie?.nation?.name)
+    fun searchMovies(reqMovie: ReqMovie?) = organApi.searchMovies(reqMovie?.keyword?:"", reqMovie?.genre?.id, reqMovie?.nation?.id)
         .observeOn(AndroidSchedulers.mainThread())
+
 }

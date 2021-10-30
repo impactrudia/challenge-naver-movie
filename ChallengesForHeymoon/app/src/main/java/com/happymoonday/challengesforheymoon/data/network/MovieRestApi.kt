@@ -15,7 +15,7 @@ interface MovieRestApi {
     @GET("/v1/search/movie.json")
     fun searchMovies(
         @Query("query") query: String,
-        @Query("genre") genre: String?,
+        @Query("genre") genre: Int?,
         @Query("country") country: String?
     ): Single<BaseResponse<List<Movie>>>
 }
