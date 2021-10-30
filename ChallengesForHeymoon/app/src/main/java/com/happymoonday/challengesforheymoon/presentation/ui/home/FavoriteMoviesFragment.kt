@@ -5,13 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.room.Room
-import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.SearchMovieAdapter
-import com.happymoonday.challengesforheymoon.databinding.FragmentHomeViewPagerBinding
-import com.happymoonday.challengesforheymoon.databinding.FragmentMovieFavoritesBinding
-import com.happymoonday.challengesforheymoon.databinding.FragmentMovieSearchBinding
+import com.happymoonday.challengesforheymoon.databinding.FragmentFavoriteMoviesBinding
 import com.happymoonday.challengesforheymoon.domain.constants.Constants
 import com.happymoonday.challengesforheymoon.domain.database.AppDatabase
 import com.happymoonday.challengesforheymoon.domain.model.Movie
@@ -19,9 +15,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MovieFavoritesFragment : Fragment() {
+class FavoriteMoviesFragment : Fragment() {
 
-    lateinit var binding: FragmentMovieFavoritesBinding
+    lateinit var binding: FragmentFavoriteMoviesBinding
     /**
      * database instance
      */
@@ -33,7 +29,6 @@ class MovieFavoritesFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         db = Room.databaseBuilder(requireContext(), AppDatabase::class.java, Constants.MOVIE_DB).build()
     }
 
@@ -41,7 +36,7 @@ class MovieFavoritesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMovieFavoritesBinding.inflate(inflater, container, false)
+        binding = FragmentFavoriteMoviesBinding.inflate(inflater, container, false)
 
         binding.apply {
             recyclerView.adapter = adapter
