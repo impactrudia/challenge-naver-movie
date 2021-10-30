@@ -13,7 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.MOVIE_FAVORITES_PAGE_INDEX
 import com.happymoonday.challengesforheymoon.databinding.FragmentMovieSearchBinding
-import com.happymoonday.challengesforheymoon.domain.constants.Constants
+import com.happymoonday.challengesforheymoon.data.constants.Constants
 import com.happymoonday.challengesforheymoon.presentation.ui.search.SearchActivity
 
 class MovieSearchFragment : Fragment() {

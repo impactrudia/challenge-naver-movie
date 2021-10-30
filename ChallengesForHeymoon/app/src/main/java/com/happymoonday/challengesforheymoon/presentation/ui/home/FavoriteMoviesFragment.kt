@@ -11,8 +11,8 @@ import androidx.room.Room
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.SearchMovieAdapter
 import com.happymoonday.challengesforheymoon.databinding.FragmentFavoriteMoviesBinding
-import com.happymoonday.challengesforheymoon.domain.constants.Constants
-import com.happymoonday.challengesforheymoon.domain.database.AppDatabase
+import com.happymoonday.challengesforheymoon.data.constants.Constants
+import com.happymoonday.challengesforheymoon.data.database.AppDatabase
 import com.happymoonday.challengesforheymoon.domain.model.Movie
 import com.happymoonday.challengesforheymoon.presentation.ui.movieinfo.MovieInfoActivity
 import kotlinx.coroutines.CoroutineScope

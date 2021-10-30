@@ -1,4 +1,4 @@
-package com.happymoonday.challengesforheymoon.domain.constants
+package com.happymoonday.challengesforheymoon.data.constants
 
 object Constants {
     const val MOVIE_DB = "movie-db"

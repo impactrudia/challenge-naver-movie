@@ -9,7 +9,7 @@ import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.ChooseGenreAdapter
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseGenreBinding
-import com.happymoonday.challengesforheymoon.domain.constants.Constants.BUNDLE_KEYWORD
+import com.happymoonday.challengesforheymoon.data.constants.Constants.BUNDLE_KEYWORD
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
 

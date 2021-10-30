@@ -1,4 +1,4 @@
-package com.happymoonday.challengesforheymoon.domain.database
+package com.happymoonday.challengesforheymoon.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
