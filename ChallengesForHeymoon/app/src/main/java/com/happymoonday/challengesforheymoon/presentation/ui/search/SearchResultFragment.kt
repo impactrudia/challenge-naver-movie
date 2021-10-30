@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isVisible
 import androidx.navigation.navGraphViewModels
 import androidx.room.Room
 import com.happymoonday.challengesforheymoon.R
@@ -28,15 +27,14 @@ class SearchResultFragment : BaseFragment() {
     private val adapter by lazy {
         SearchMovieAdapter({
             showFavoriteAlert(it)
-        },{
-
+        }, {
         })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        db = Room.databaseBuilder(requireContext(), AppDatabase::class.java, Constants.MOVIE_DB).build()
+        db = Room.databaseBuilder(requireContext(), AppDatabase::class.java, Constants.MOVIE_DB)
+            .build()
     }
 
     override fun onCreateView(
@@ -59,42 +57,35 @@ class SearchResultFragment : BaseFragment() {
     }
 
     private fun subscribeUi(adapter: SearchMovieAdapter) {
-        val item = Movie(
-            "https://movie.naver.com/movie/bi/mi/basic.nhn?code=187310",
-            "홈런",
-            "https://ssl.pstatic.net/imgmovie/mdi/mit110/1873/187310_P20_100054.jpg",
-        "Minari",
-        "2020",
-        "정이삭|",
-        "윌 패튼|스티븐 연|한예리|윤여정|앨런 김|노엘 조|",
-        "7.58")
-        var items = listOf<Movie>(item, item, item, item)//TODO FIX
-        adapter.submitList(items)
-
-        //TODO FIX
-        binding.recyclerView.isVisible = !items.isNullOrEmpty()
-        binding.textEmptyMessage.isVisible = items.isNullOrEmpty()
+        viewModel.requestSearchMovie({
+            val items = it.items
+            adapter.submitList(items)
+            binding.hasSearchMovies = !items.isNullOrEmpty()
+        }, {
+            binding.hasSearchMovies = false
+        })
     }
 
-    private fun showFavoriteAlert(movie: Movie?){
+    private fun showFavoriteAlert(movie: Movie?) {
         val alertDialog: AlertDialog? = this.let {
             val builder = AlertDialog.Builder(requireContext())
             builder.apply {
                 setTitle(R.string.are_you_sure_you_want_to_add_this_movie_to_your_favorites)
-                setPositiveButton(R.string.no
+                setPositiveButton(
+                    R.string.no
                 ) { dialog, id ->
                 }
-                setNegativeButton(R.string.yes
+                setNegativeButton(
+                    R.string.yes
                 ) { dialog, id ->
-                    if(movie != null){
+                    if (movie != null) {
                         CoroutineScope(Dispatchers.Default).launch {
                             db.movieDao().insertMovie(movie)
                         }
                         moveToHome()
-                    }else{
+                    } else {
                         moveToHome()
                     }
-                    //TODO 탭 첫 번째로 이동
                 }
             }
             builder.create()

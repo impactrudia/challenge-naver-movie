@@ -3,7 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
+    <data>
+        <variable
+            name="hasSearchMovies"
+            type="boolean" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,6 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:listitem="@layout/item_movie_favorites"
+            app:isGone="@{!hasSearchMovies}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
         <TextView
@@ -32,6 +37,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:isGone="@{hasSearchMovies}"
             android:text="@string/do_not_exist_result_api" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

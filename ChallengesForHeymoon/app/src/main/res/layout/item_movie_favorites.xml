@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <import type="android.text.Html"/>
+
         <variable
             name="clickListener"
             type="android.view.View.OnClickListener"/>
@@ -22,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="@{item.title}"
+            android:text="@{Html.fromHtml(item.title)}"
             android:gravity="center"
             android:layout_gravity="center"
             tools:text="movie"/>
