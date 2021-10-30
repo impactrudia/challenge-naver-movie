@@ -1,5 +1,6 @@
 package com.happymoonday.challengesforheymoon.presentation.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import com.happymoonday.challengesforheymoon.databinding.FragmentFavoriteMoviesB
 import com.happymoonday.challengesforheymoon.domain.constants.Constants
 import com.happymoonday.challengesforheymoon.domain.database.AppDatabase
 import com.happymoonday.challengesforheymoon.domain.model.Movie
+import com.happymoonday.challengesforheymoon.presentation.ui.movieinfo.MovieInfoActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,6 +26,7 @@ class FavoriteMoviesFragment : Fragment() {
     lateinit var db: AppDatabase
     private val adapter by lazy {
         SearchMovieAdapter {
+            navigateToMovieInfoPage(it.link)
         }
     }
 
@@ -57,6 +60,12 @@ class FavoriteMoviesFragment : Fragment() {
 
     private fun subscribeUi(adapter: SearchMovieAdapter, movies: List<Movie>) {
         adapter.submitList(movies)
+    }
+
+    private fun navigateToMovieInfoPage(link: String) {
+        val intent = Intent(requireActivity(), MovieInfoActivity::class.java)
+        intent.putExtra(Constants.BUNDLE_LINK, link)
+        startActivity(intent)
     }
 
 }

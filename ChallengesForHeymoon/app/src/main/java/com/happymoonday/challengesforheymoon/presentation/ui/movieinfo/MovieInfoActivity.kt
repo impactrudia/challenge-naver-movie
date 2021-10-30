@@ -3,11 +3,12 @@ package com.happymoonday.challengesforheymoon.presentation.ui.movieinfo
 import android.os.Bundle
 import android.webkit.WebViewClient
 import com.happymoonday.challengesforheymoon.databinding.ActivityMovieInfoBinding
+import com.happymoonday.challengesforheymoon.domain.constants.Constants
 import com.happymoonday.challengesforheymoon.presentation.base.BaseActivity
 
 class MovieInfoActivity : BaseActivity() {
 
-    private lateinit var binding : ActivityMovieInfoBinding
+    private lateinit var binding: ActivityMovieInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,17 +18,19 @@ class MovieInfoActivity : BaseActivity() {
         binding.apply {
             webView.apply {
                 webViewClient = WebViewClient()
+
                 settings.apply {
                     javaScriptEnabled = true
                     domStorageEnabled = true
                     setSupportMultipleWindows(true)
                 }
-                loadUrl("https://movie.naver.com/movie/bi/mi/basic.nhn?code=187310")//TODO CHANGE
+                val link = intent.getStringExtra(Constants.BUNDLE_LINK) ?: ""
+                loadUrl(link)
             }
             btnRedo.setOnClickListener {
-                if(webView.canGoBack()){
+                if (webView.canGoBack()) {
                     webView.goBack()
-                }else {
+                } else {
                     super.onBackPressed()
                 }
             }
