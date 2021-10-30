@@ -25,7 +25,7 @@ class ChooseGenreFragment : BaseFragment() {
         }
     }
 
-    private fun navigateToNation() {//view: View
+    private fun navigateToNation() {
         val action = ChooseGenreFragmentDirections.actionFragmentChooseGenreToFragmentNation()
         findNavController().navigate(action)
     }

@@ -20,7 +20,6 @@
     <string name="are_you_sure_you_want_to_add_this_movie_to_your_favorites">이 영화를 즐겨찾기에\n추가하시겠습니까?</string>
     <string name="yes">네</string>
     <string name="no">아니요</string>
-    <string name="the_list_of_favorites_does_not_exist">즐겨찾기 목록이 존재하지 않습니다.\n검색 화면을 통해 즐겨찾기를 추가해주세요.</string>
 
     <string name="genre_drama">드라마</string>
     <string name="genre_fantasy">판타지</string>
@@ -34,5 +33,6 @@
     <string name="genre_documentary">다큐멘터리</string>
 
     <!--상의 할 부분-->
-    <string name="do_not_exist_result_api">API 검색결과 리스트가 존재하지 않습니다.\n화면을 클릭할 경우 홈 화면으로 이동합니다.</string>
+    <string name="do_not_exist_result_api">API 검색결과 목록이 존재하지 않습니다.\n화면을 클릭할 경우 홈 화면으로 이동합니다.</string>
+    <string name="the_list_of_favorites_does_not_exist">즐겨찾기 목록이 존재하지 않습니다.\n홈 탭에서 영화검색 후 즐겨찾기를 추가해주세요.</string>
 </resources>
