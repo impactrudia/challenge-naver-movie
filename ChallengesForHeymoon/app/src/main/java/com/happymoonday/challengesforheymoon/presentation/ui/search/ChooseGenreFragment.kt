@@ -9,9 +9,9 @@ import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.ChooseGenreAdapter
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseGenreBinding
+import com.happymoonday.challengesforheymoon.domain.constants.Constants.BUNDLE_KEYWORD
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
-import com.happymoonday.challengesforheymoon.presentation.ui.home.MovieSearchFragment
 
 class ChooseGenreFragment : BaseFragment() {
 
@@ -32,7 +32,7 @@ class ChooseGenreFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.get(MovieSearchFragment.BUNDLE_KEYWORD).toString()
+        arguments?.get(BUNDLE_KEYWORD).toString()
     }
 
     override fun onCreateView(
@@ -49,7 +49,7 @@ class ChooseGenreFragment : BaseFragment() {
             subscribeUi(adapter)
         }
 
-        viewModel.movie?.keyword = arguments?.get(MovieSearchFragment.BUNDLE_KEYWORD).toString()
+        viewModel.movie?.keyword = arguments?.get(BUNDLE_KEYWORD).toString()
 
         return binding.root
     }
@@ -58,4 +58,5 @@ class ChooseGenreFragment : BaseFragment() {
         val items = GenreType.findGenreTypeList()//TODO CHANGE
         adapter.submitList(items)
     }
+
 }

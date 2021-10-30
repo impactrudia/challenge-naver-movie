@@ -31,11 +31,12 @@ class HomeViewPagerFragment : Fragment() {
         return binding.root
     }
 
-    private fun getTabTitle(position: Int): String?{
+    private fun getTabTitle(position: Int): String? {
         return when (position) {
             MOVIE_SEARCH_PAGE_INDEX -> getString(R.string.home)
             MOVIE_FAVORITES_PAGE_INDEX -> getString(R.string.favorites)
             else -> null
         }
     }
+
 }
