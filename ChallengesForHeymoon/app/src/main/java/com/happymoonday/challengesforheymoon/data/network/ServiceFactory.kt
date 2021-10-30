@@ -2,6 +2,7 @@ package com.happymoonday.challengesforheymoon.data.network
 
 import com.google.gson.GsonBuilder
 import com.happymoonday.challengesforheymoon.BuildConfig
+import com.happymoonday.challengesforheymoon.data.constants.NaverConstants
 import io.reactivex.schedulers.Schedulers
 import okhttp3.ConnectionSpec
 import okhttp3.Interceptor
@@ -18,8 +19,8 @@ import java.util.concurrent.TimeUnit
 class ServiceFactory {
     companion object {
         const val HOST_URL = "https://openapi.naver.com"
-        const val CLIENT_ID = ""
-        const val CLIENT_SECRET = ""
+        const val CLIENT_ID = NaverConstants.CLIENT_ID
+        const val CLIENT_SECRET = NaverConstants.CLIENT_SECRET
     }
 
     private fun getAuthenticationInterceptor(): Interceptor {

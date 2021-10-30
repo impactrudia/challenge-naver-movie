@@ -83,3 +83,4 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+ChallengesForHeymoon/app/src/main/java/com/happymoonday/challengesforheymoon/data/constants/NaverConstants.kt
