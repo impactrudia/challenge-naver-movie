@@ -27,8 +27,9 @@ class MovieSearchFragment : Fragment() {
         binding = FragmentMovieSearchBinding.inflate(inflater, container, false)
 
         binding.btnSearchKeyword.setOnClickListener {
-            val intent = Intent(requireContext(), SearchActivity::class.java)
-            intent.putExtra(Constants.BUNDLE_KEYWORD, binding.editInputSearch.text)
+            var intent = Intent(requireContext(), SearchActivity::class.java)
+            var bundle: Bundle = Bundle()
+            intent.putExtra(Constants.BUNDLE_KEYWORD, binding.editInputSearch.text.toString())
             startForResult.launch(intent)
         }
 

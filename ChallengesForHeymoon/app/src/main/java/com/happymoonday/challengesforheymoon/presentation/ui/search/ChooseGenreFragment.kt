@@ -1,6 +1,7 @@
 package com.happymoonday.challengesforheymoon.presentation.ui.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.ChooseGenreAdapter
+import com.happymoonday.challengesforheymoon.data.constants.Constants
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseGenreBinding
 import com.happymoonday.challengesforheymoon.data.constants.Constants.BUNDLE_KEYWORD
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
@@ -42,14 +44,13 @@ class ChooseGenreFragment : BaseFragment() {
         binding = FragmentChooseGenreBinding.inflate(inflater, container, false)
 
         binding.apply {
-            textTitle.text = getString(R.string.msg_result_search_term, viewModel.movie?.keyword)//TODO FIX
+            viewModel.movie?.keyword = requireActivity().intent.extras?.getString(Constants.BUNDLE_KEYWORD, "")
+            textTitle.text = getString(R.string.msg_result_search_term, viewModel.movie?.keyword)
 
             recyclerView.adapter = adapter
 
             subscribeUi(adapter)
         }
-
-        viewModel.movie?.keyword = arguments?.get(BUNDLE_KEYWORD).toString()
 
         return binding.root
     }
