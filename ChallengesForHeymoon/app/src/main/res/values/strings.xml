@@ -6,9 +6,9 @@
     <string name="home">홈</string>
     <string name="favorites">즐겨찾기</string>
     <string name="favorites_list">즐겨찾기 리스트</string>
-    <string name="msg_result_search_term">입력한 검색어는 %s 입니다.\n영화 장르를 선택해주세요.</string>
+    <string name="msg_result_search_term">입력한 검색어는 {%s} 입니다.\n영화 장르를 선택해주세요.</string>
     <string name="choose_a_genre">장르 선택</string>
-    <string name="msg_result_select_country">선택한 장르는 %s 입니다.\n국가를 선택해주세요.</string>
+    <string name="msg_result_select_country">선택한 장르는 {%s} 입니다.\n국가를 선택해주세요.</string>
     <string name="choose_country">국가 선택</string>
     <string name="information_summary_screen">정보 요약 화면</string>
     <string name="search_keyword_summary">- 입력한 검색어 : %s \n- 선택한 장르 : %s \n- 선택한 국가 : %s</string>

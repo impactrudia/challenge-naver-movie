@@ -11,8 +11,8 @@ import com.happymoonday.challengesforheymoon.adapters.ChooseGenreAdapter
 import com.happymoonday.challengesforheymoon.data.constants.Constants
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseGenreBinding
 import com.happymoonday.challengesforheymoon.data.constants.Constants.BUNDLE_KEYWORD
-import com.happymoonday.challengesforheymoon.domain.enums.GenreType
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
+import com.happymoonday.challengesforheymoon.viewmodels.SearchViewModel
 
 class ChooseGenreFragment : BaseFragment() {
 
@@ -21,7 +21,7 @@ class ChooseGenreFragment : BaseFragment() {
 
     private val adapter by lazy {
         ChooseGenreAdapter {
-            viewModel.movie?.genre = it
+            viewModel.reqMovie?.genre = it
             navigateToNation()
         }
     }
@@ -43,8 +43,8 @@ class ChooseGenreFragment : BaseFragment() {
         binding = FragmentChooseGenreBinding.inflate(inflater, container, false)
 
         binding.apply {
-            viewModel.movie?.keyword = requireActivity().intent.extras?.getString(Constants.BUNDLE_KEYWORD, "")
-            textTitle.text = getString(R.string.msg_result_search_term, viewModel.movie?.keyword)
+            viewModel.reqMovie?.keyword = requireActivity().intent.extras?.getString(Constants.BUNDLE_KEYWORD, "")
+            textTitle.text = getString(R.string.msg_result_search_term, viewModel.reqMovie?.keyword)
 
             recyclerView.adapter = adapter
 
@@ -54,9 +54,15 @@ class ChooseGenreFragment : BaseFragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = viewLifecycleOwner
+    }
+
     private fun subscribeUi(adapter: ChooseGenreAdapter) {
-        val items = GenreType.findGenreTypeList()
-        adapter.submitList(items)
+        viewModel.genres.observe(viewLifecycleOwner) { results ->
+            adapter.submitList(results)
+        }
     }
 
 }

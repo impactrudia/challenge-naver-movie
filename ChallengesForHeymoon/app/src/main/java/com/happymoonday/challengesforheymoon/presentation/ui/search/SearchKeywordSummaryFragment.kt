@@ -1,7 +1,6 @@
 package com.happymoonday.challengesforheymoon.presentation.ui.search
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +9,7 @@ import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.databinding.FragmentSearchKeywordSummaryBinding
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
+import com.happymoonday.challengesforheymoon.viewmodels.SearchViewModel
 
 class SearchKeywordSummaryFragment : BaseFragment() {
 
@@ -23,7 +23,7 @@ class SearchKeywordSummaryFragment : BaseFragment() {
         binding = FragmentSearchKeywordSummaryBinding.inflate(inflater, container, false)
 
         binding.apply {
-            viewModel.movie?.let {
+            viewModel.reqMovie?.let {
                 textSummary.text = getString(R.string.search_keyword_summary, it.keyword, getString(it.genre?.toDescription?:-1), getString(it.nation?.toDescription?:-1))
             }
 
@@ -34,6 +34,11 @@ class SearchKeywordSummaryFragment : BaseFragment() {
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = viewLifecycleOwner
     }
 
 }

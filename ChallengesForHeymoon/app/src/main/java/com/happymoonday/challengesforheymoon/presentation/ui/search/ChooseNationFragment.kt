@@ -11,6 +11,7 @@ import com.happymoonday.challengesforheymoon.adapters.ChooseNationAdapter
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseNationBinding
 import com.happymoonday.challengesforheymoon.domain.enums.CountryType
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
+import com.happymoonday.challengesforheymoon.viewmodels.SearchViewModel
 
 class ChooseNationFragment : BaseFragment() {
 
@@ -19,7 +20,7 @@ class ChooseNationFragment : BaseFragment() {
 
     private val adapter by lazy {
         ChooseNationAdapter {
-            viewModel.movie?.nation = it
+            viewModel.reqMovie?.nation = it
             navigateToNation()
         }
     }
@@ -36,7 +37,7 @@ class ChooseNationFragment : BaseFragment() {
         binding = FragmentChooseNationBinding.inflate(inflater, container, false)
 
         binding.apply {
-            textTitle.text = getString(R.string.msg_result_select_country, getString(viewModel.movie?.genre?.toDescription?:-1))
+            textTitle.text = getString(R.string.msg_result_select_country, getString(viewModel.reqMovie?.genre?.toDescription?:-1))
 
             recyclerView.adapter = adapter
 
@@ -46,9 +47,18 @@ class ChooseNationFragment : BaseFragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner = viewLifecycleOwner
+    }
+
     private fun subscribeUi(adapter: ChooseNationAdapter) {
         val items = CountryType.findNationTypeList()
         adapter.submitList(items)
+
+        viewModel.countries.observe(viewLifecycleOwner) { results ->
+            adapter.submitList(results)
+        }
     }
 
 }

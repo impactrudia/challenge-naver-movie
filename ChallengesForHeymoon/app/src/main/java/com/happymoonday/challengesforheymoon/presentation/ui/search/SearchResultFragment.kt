@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.room.Room
@@ -17,6 +16,7 @@ import com.happymoonday.challengesforheymoon.data.database.AppDatabase
 import com.happymoonday.challengesforheymoon.domain.model.Movie
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
 import com.happymoonday.challengesforheymoon.presentation.base.CustomDialog
+import com.happymoonday.challengesforheymoon.viewmodels.SearchViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
