@@ -1,7 +1,6 @@
 package com.happymoonday.challengesforheymoon.presentation.ui.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,7 +55,7 @@ class ChooseGenreFragment : BaseFragment() {
     }
 
     private fun subscribeUi(adapter: ChooseGenreAdapter) {
-        val items = GenreType.findGenreTypeList()//TODO CHANGE
+        val items = GenreType.findGenreTypeList()
         adapter.submitList(items)
     }
 

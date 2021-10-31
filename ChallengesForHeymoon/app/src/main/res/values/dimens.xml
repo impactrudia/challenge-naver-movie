@@ -7,4 +7,7 @@
     <dimen name="itemHeightDefault">50dp</dimen>
     <dimen name="imageSplashIcon">150dp</dimen>
     <dimen name="titleBarDefault">56dp</dimen>
+    <dimen name="favoriteMovieItemPosterW">70dp</dimen>
+    <dimen name="favoriteMovieItemPosterH">100dp</dimen>
+    <dimen name="favoriteMovieItemPosterMargin">20dp</dimen>
 </resources>

@@ -28,7 +28,6 @@ class MovieSearchFragment : Fragment() {
 
         binding.btnSearchKeyword.setOnClickListener {
             var intent = Intent(requireContext(), SearchActivity::class.java)
-            var bundle: Bundle = Bundle()
             intent.putExtra(Constants.BUNDLE_KEYWORD, binding.editInputSearch.text.toString())
             startForResult.launch(intent)
         }

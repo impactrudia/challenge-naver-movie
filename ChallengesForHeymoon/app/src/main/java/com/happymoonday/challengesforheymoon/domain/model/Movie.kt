@@ -25,4 +25,17 @@ data class Movie(
    fun getUid(): Int? {
       return this.uuid
    }
+
+   private fun removeSeparator(input: String?): String? {
+      val directors = input?.split("|")
+      return directors?.filter { it.isNotEmpty() }?.joinToString(",")
+   }
+
+   fun formatDirector(): String?{
+      return removeSeparator(director)
+   }
+
+   fun formatActor(): String?{
+      return removeSeparator(actor)
+   }
 }

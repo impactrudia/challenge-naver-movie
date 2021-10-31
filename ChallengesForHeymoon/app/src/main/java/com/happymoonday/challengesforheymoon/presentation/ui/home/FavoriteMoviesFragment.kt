@@ -90,7 +90,7 @@ class FavoriteMoviesFragment : Fragment() {
                     R.string.yes
                 ) { dialog, id ->
                     CoroutineScope(Dispatchers.Default).launch {
-                        db.movieDao().deleteByUserId(movie.uuid)
+                        db.movieDao().deleteByUuid(movie.uuid)
                     }
                     getAllMovie()
                 }
