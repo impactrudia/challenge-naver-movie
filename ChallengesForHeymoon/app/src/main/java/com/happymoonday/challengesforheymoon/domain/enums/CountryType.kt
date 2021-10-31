@@ -14,7 +14,7 @@ enum class CountryType(val id: String, @StringRes val toDescription: Int) {
 
     companion object {
         fun findNationTypeList(): List<CountryType> {
-            return CountryType.values().toList()
+            return values().toList()
         }
     }
 }
