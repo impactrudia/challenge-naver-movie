@@ -32,6 +32,32 @@
     <string name="genre_noir">느와르</string>
     <string name="genre_cult">컬트</string>
     <string name="genre_documentary">다큐멘터리</string>
+    <string name="genre_comedy">코미디</string>
+    <string name="genre_family">가족</string>
+    <string name="genre_mystery">미스터리</string>
+    <string name="genre_war">전쟁</string>
+    <string name="genre_animation">애니메이션</string>
+    <string name="genre_crime">범죄</string>
+    <string name="genre_musical">뮤지컬</string>
+    <string name="genre_sf">SF</string>
+    <string name="genre_action">액션</string>
+    <string name="genre_martial_arts">무협</string>
+    <string name="genre_erotic">에로</string>
+    <string name="genre_suspense">서스펜스</string>
+    <string name="genre_epic">서사</string>
+    <string name="genre_black_comedy">블랙코미디</string>
+    <string name="genre_experiment">실험</string>
+    <string name="genre_cartoon">영화카툰</string>
+    <string name="genre_music">영화음악</string>
+    <string name="genre_parody_poster">영화패러디포스터</string>
+
+    <string name="country_korea">한국</string>
+    <string name="country_japan">일본</string>
+    <string name="country_united_states">미국</string>
+    <string name="country_hong_kong">홍콩</string>
+    <string name="country_uk">영국</string>
+    <string name="country_france">프랑스</string>
+    <string name="country_others">기타</string>
 
     <!--상의 할 부분-->
     <string name="do_not_exist_result_api">API 검색결과 목록이 존재하지 않습니다.\n화면을 클릭할 경우 홈 화면으로 이동합니다.</string>

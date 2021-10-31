@@ -1,13 +1,16 @@
 package com.happymoonday.challengesforheymoon.domain.enums
 
-enum class CountryType(var id: String, var toDescription: String) {
-    KOREA("KR","한국"),
-    JAPAN("JP","일본"),
-    UNITED_STATES("US","미국"),
-    HONG_KONG("HK","홍콩"),
-    UK("GB","영국"),
-    FRANCE("FR","프랑스"),
-    OTHERS("ETC","기타");
+import androidx.annotation.StringRes
+import com.happymoonday.challengesforheymoon.R
+
+enum class CountryType(val id: String, @StringRes val toDescription: Int) {
+    KOREA("KR", R.string.country_korea),
+    JAPAN("JP", R.string.country_japan),
+    UNITED_STATES("US", R.string.country_united_states),
+    HONG_KONG("HK", R.string.country_hong_kong),
+    UK("GB", R.string.country_uk),
+    FRANCE("FR", R.string.country_france),
+    OTHERS("ETC", R.string.country_others);
 
     companion object {
         fun findNationTypeList(): List<CountryType> {

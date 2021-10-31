@@ -1,34 +1,37 @@
 package com.happymoonday.challengesforheymoon.domain.enums
 
-enum class GenreType(var id: Int, var toDescription: String) {
-    DRAMA(1, "드라마"),
-    FANTASY(2, "판타지"),
-    WEST(3, "서부"),
-    HORROR(4, "공포"),
-    ROMANCE(5, "로맨스"),
-    ADVENTURE(6, "모험"),
-    THRILLER(7, "스릴러"),
-    NOIR(8, "느와르"),
-    CULT(9, "컬트"),
-    DOCUMENTARY(10, "다큐멘터리"),
-    COMEDY(11, "코미디"),
-    FAMILY(12, "가족"),
-    MYSTERY(13, "미스터리"),
-    WAR(14, "전쟁"),
-    ANIMATION(15, "애니메이션"),
-    CRIME(16, "범죄"),
-    MUSICAL(17, "뮤지컬"),
-    SF(18, "SF"),
-    ACTION(19, "액션"),
-    MARTIAL_ARTS(20, "무협"),
-    EROTIC(21, "에로"),
-    SUSPENSE(22, "서스펜스"),
-    EPIC(23, "서사"),
-    BLACK_COMEDY(24, "블랙코미디"),
-    EXPERIMENT(25, "실험"),
-    MOVIE_CARTOON(26, "영화카툰"),
-    MOVIE_MUSIC(27, "영화음악"),
-    MOVIE_PARODY_POSTER(28, "영화패러디포스터");
+import androidx.annotation.StringRes
+import com.happymoonday.challengesforheymoon.R
+
+enum class GenreType(var id: Int, @StringRes var toDescription: Int) {
+    DRAMA(1, R.string.genre_drama),
+    FANTASY(2, R.string.genre_fantasy),
+    WEST(3, R.string.genre_west),
+    HORROR(4, R.string.genre_horror),
+    ROMANCE(5, R.string.genre_romance),
+    ADVENTURE(6, R.string.genre_adventure),
+    THRILLER(7, R.string.genre_thriller),
+    NOIR(8, R.string.genre_noir),
+    CULT(9, R.string.genre_cult),
+    DOCUMENTARY(10, R.string.genre_documentary),
+    COMEDY(11, R.string.genre_comedy),
+    FAMILY(12, R.string.genre_family),
+    MYSTERY(13, R.string.genre_mystery),
+    WAR(14, R.string.genre_war),
+    ANIMATION(15, R.string.genre_animation),
+    CRIME(16, R.string.genre_crime),
+    MUSICAL(17, R.string.genre_musical),
+    SF(18, R.string.genre_sf),
+    ACTION(19, R.string.genre_action),
+    MARTIAL_ARTS(20, R.string.genre_martial_arts),
+    EROTIC(21, R.string.genre_erotic),
+    SUSPENSE(22, R.string.genre_suspense),
+    EPIC(23, R.string.genre_epic),
+    BLACK_COMEDY(24, R.string.genre_black_comedy),
+    EXPERIMENT(25, R.string.genre_experiment),
+    MOVIE_CARTOON(26, R.string.genre_cartoon),
+    MOVIE_MUSIC(27, R.string.genre_music),
+    MOVIE_PARODY_POSTER(28, R.string.genre_parody_poster);
 
     companion object {
         fun findGenreTypeList(): List<GenreType> {

@@ -36,7 +36,7 @@ class ChooseNationFragment : BaseFragment() {
         binding = FragmentChooseNationBinding.inflate(inflater, container, false)
 
         binding.apply {
-            textTitle.text = getString(R.string.msg_result_select_country, viewModel.movie?.genre?.toDescription)
+            textTitle.text = getString(R.string.msg_result_select_country, getString(viewModel.movie?.genre?.toDescription?:-1))
 
             recyclerView.adapter = adapter
 

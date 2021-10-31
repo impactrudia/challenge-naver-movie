@@ -24,7 +24,7 @@ class SearchKeywordSummaryFragment : BaseFragment() {
 
         binding.apply {
             viewModel.movie?.let {
-                textSummary.text = getString(R.string.search_keyword_summary, it.keyword, it.genre?.toDescription, it.nation?.toDescription)
+                textSummary.text = getString(R.string.search_keyword_summary, it.keyword, getString(it.genre?.toDescription?:-1), getString(it.nation?.toDescription?:-1))
             }
 
             btnSearchMovie.setOnClickListener {

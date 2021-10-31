@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/itemHeightDefault"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:text="@{item.toDescription}"
+            app:resourceToString="@{item.toDescription}"
             android:textColor="@color/xml_selector_text_search_round_rect"
             android:background="@drawable/xml_selector_search_round_rect"
             android:gravity="center"
