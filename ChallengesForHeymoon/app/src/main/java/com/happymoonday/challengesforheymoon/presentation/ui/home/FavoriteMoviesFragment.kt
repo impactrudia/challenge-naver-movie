@@ -14,6 +14,7 @@ import com.happymoonday.challengesforheymoon.databinding.FragmentFavoriteMoviesB
 import com.happymoonday.challengesforheymoon.data.constants.Constants
 import com.happymoonday.challengesforheymoon.data.database.AppDatabase
 import com.happymoonday.challengesforheymoon.domain.model.Movie
+import com.happymoonday.challengesforheymoon.presentation.base.CustomDialog
 import com.happymoonday.challengesforheymoon.presentation.ui.movieinfo.MovieInfoActivity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +27,7 @@ class FavoriteMoviesFragment : Fragment() {
     private val adapter by lazy {
         SearchMovieAdapter({
             navigateToMovieInfoPage(it.link)
-        },{
+        }, {
             showDeleteMovieAlert(it)
         })
     }
@@ -77,27 +78,18 @@ class FavoriteMoviesFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun showDeleteMovieAlert(movie: Movie){
-        val alertDialog: AlertDialog? = this.let {
-            val builder = AlertDialog.Builder(requireContext())
-            builder.apply {
-                setTitle(R.string.are_you_sure_you_want_to_delete_this_movie_to_your_favorites)
-                setPositiveButton(
-                    R.string.no
-                ) { dialog, id ->
+    private fun showDeleteMovieAlert(movie: Movie) {
+        CustomDialog.showDefaultDialog(
+            requireContext(),
+            getString(R.string.are_you_sure_you_want_to_delete_this_movie_to_your_favorites),
+            callbackLeft={
+            },
+            callbackRight = {
+                CoroutineScope(Dispatchers.Default).launch {
+                    db.movieDao().deleteByUuid(movie.uuid)
                 }
-                setNegativeButton(
-                    R.string.yes
-                ) { dialog, id ->
-                    CoroutineScope(Dispatchers.Default).launch {
-                        db.movieDao().deleteByUuid(movie.uuid)
-                    }
-                    getAllMovie()
-                }
-            }
-            builder.create()
-        }
-        alertDialog?.show()
+                getAllMovie()
+            })
     }
 
 }

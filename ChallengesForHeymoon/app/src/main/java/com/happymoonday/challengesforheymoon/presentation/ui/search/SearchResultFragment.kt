@@ -15,6 +15,7 @@ import com.happymoonday.challengesforheymoon.data.constants.Constants
 import com.happymoonday.challengesforheymoon.data.database.AppDatabase
 import com.happymoonday.challengesforheymoon.domain.model.Movie
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
+import com.happymoonday.challengesforheymoon.presentation.base.CustomDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -67,30 +68,21 @@ class SearchResultFragment : BaseFragment() {
     }
 
     private fun showFavoriteAlert(movie: Movie?) {
-        val alertDialog: AlertDialog? = this.let {
-            val builder = AlertDialog.Builder(requireContext())
-            builder.apply {
-                setTitle(R.string.are_you_sure_you_want_to_add_this_movie_to_your_favorites)
-                setPositiveButton(
-                    R.string.no
-                ) { dialog, id ->
-                }
-                setNegativeButton(
-                    R.string.yes
-                ) { dialog, id ->
-                    if (movie != null) {
-                        CoroutineScope(Dispatchers.Default).launch {
-                            db.movieDao().insertMovie(movie)
-                        }
-                        moveToHome()
-                    } else {
-                        moveToHome()
+        CustomDialog.showDefaultDialog(
+            requireContext(),
+            getString(R.string.are_you_sure_you_want_to_add_this_movie_to_your_favorites),
+            callbackLeft={
+            },
+            callbackRight = {
+                if (movie != null) {
+                    CoroutineScope(Dispatchers.Default).launch {
+                        db.movieDao().insertMovie(movie)
                     }
+                    moveToHome()
+                } else {
+                    moveToHome()
                 }
-            }
-            builder.create()
-        }
-        alertDialog?.show()
+            })
     }
 
     private fun moveToHome() {
