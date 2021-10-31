@@ -8,13 +8,9 @@
     tools:context=".presentation.ui.search.ChooseGenreFragment">
 
     <TextView
-        android:id="@+id/textSummaryInfoTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@android:style/TextAppearance.Medium"
-        android:layout_marginHorizontal="@dimen/textMarginHorizontalDefault"
+        android:id="@+id/textTitle"
+        style="@style/TextSearchTitle"
         android:text="@string/information_summary_screen"
-        android:layout_marginTop="@dimen/textMarginTopDefault"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -24,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="@android:style/TextAppearance.Medium"
-        app:layout_constraintTop_toBottomOf="@id/textSummaryInfoTitle"
+        app:layout_constraintTop_toBottomOf="@id/textTitle"
         android:layout_marginHorizontal="@dimen/textMarginHorizontalDefault"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

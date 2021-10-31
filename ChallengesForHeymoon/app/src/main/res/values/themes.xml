@@ -24,4 +24,20 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+
+    <style name="TextSearchTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Widget.ActionBar.Title</item>
+        <item name="android:layout_marginStart">@dimen/textMarginHorizontalDefault</item>
+        <item name="android:layout_marginEnd">@dimen/textMarginHorizontalDefault</item>
+        <item name="android:layout_marginTop">@dimen/textMarginTopDefault</item>
+    </style>
+
+    <style name="recyclerView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
 </resources>
