@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.navGraphViewModels
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.room.Room
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.SearchMovieAdapter
@@ -49,6 +50,7 @@ class SearchResultFragment : BaseFragment() {
                 requireActivity().finish()
             }
 
+            recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
             recyclerView.adapter = adapter
 
             subscribeUi(adapter)

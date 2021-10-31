@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.room.Room
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.SearchMovieAdapter
@@ -45,6 +47,7 @@ class FavoriteMoviesFragment : Fragment() {
         binding = FragmentFavoriteMoviesBinding.inflate(inflater, container, false)
 
         binding.apply {
+            recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), VERTICAL))
             recyclerView.adapter = adapter
         }
 
@@ -82,7 +85,7 @@ class FavoriteMoviesFragment : Fragment() {
         CustomDialog.showDefaultDialog(
             requireContext(),
             getString(R.string.are_you_sure_you_want_to_delete_this_movie_to_your_favorites),
-            callbackLeft={
+            callbackLeft = {
             },
             callbackRight = {
                 CoroutineScope(Dispatchers.Default).launch {
