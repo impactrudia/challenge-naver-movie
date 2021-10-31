@@ -14,15 +14,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/itemHeightDefault"
+       android:layout_height="wrap_content"
         android:onClick="@{clickListener}"
+        android:layout_marginTop="@dimen/textMarginHorizontalDefault"
+        android:layout_marginHorizontal="@dimen/textMarginHorizontalDefault"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/itemHeightDefault"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:text="@{item.toDescription}"
+            android:textColor="@color/xml_selector_text_search_round_rect"
+            android:background="@drawable/xml_selector_search_round_rect"
             android:gravity="center"
             android:layout_gravity="center"
             tools:text="genre"/>
