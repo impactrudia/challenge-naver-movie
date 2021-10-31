@@ -14,6 +14,8 @@ import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.MOVIE_FAVORITES_PAGE_INDEX
 import com.happymoonday.challengesforheymoon.databinding.FragmentMovieSearchBinding
 import com.happymoonday.challengesforheymoon.data.constants.Constants
+import com.happymoonday.challengesforheymoon.domain.model.Movie
+import com.happymoonday.challengesforheymoon.presentation.base.CustomDialog
 import com.happymoonday.challengesforheymoon.presentation.ui.search.SearchActivity
 
 class MovieSearchFragment : Fragment() {
@@ -27,18 +29,36 @@ class MovieSearchFragment : Fragment() {
         binding = FragmentMovieSearchBinding.inflate(inflater, container, false)
 
         binding.btnSearchKeyword.setOnClickListener {
-            var intent = Intent(requireContext(), SearchActivity::class.java)
-            intent.putExtra(Constants.BUNDLE_KEYWORD, binding.editInputSearch.text.toString())
-            startForResult.launch(intent)
+            if (binding.editInputSearch.text.toString().trim().isEmpty()) {
+                showAlert()
+            } else {
+                var intent = Intent(requireContext(), SearchActivity::class.java)
+                intent.putExtra(Constants.BUNDLE_KEYWORD, binding.editInputSearch.text.toString())
+                startForResult.launch(intent)
+            }
         }
 
         return binding.root
     }
 
-    private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            requireActivity().findViewById<ViewPager2>(R.id.viewPager).currentItem = MOVIE_FAVORITES_PAGE_INDEX
-        }
+    /**
+     * 영화 검색 API에 영화제목이 필수값이라 추가함.
+     */
+    private fun showAlert() {
+        CustomDialog.showDefaultDialog(
+            requireActivity(),
+            getString(R.string.please_enter_a_search_term),
+            textRight = getString(R.string.confirm),
+            callbackRight = {
+            })
     }
+
+    private val startForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                requireActivity().findViewById<ViewPager2>(R.id.viewPager).currentItem =
+                    MOVIE_FAVORITES_PAGE_INDEX
+            }
+        }
 
 }

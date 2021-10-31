@@ -65,4 +65,6 @@
     <string name="favorite_movie_rating">평점 %s</string>
     <string name="favorite_movie_director">감독 %s</string>
     <string name="favorite_movie_actor">출연 정보 %s</string>
+    <string name="please_enter_a_search_term">검색어를 입력해주세요.</string>
+    <string name="confirm">확인</string>
 </resources>
