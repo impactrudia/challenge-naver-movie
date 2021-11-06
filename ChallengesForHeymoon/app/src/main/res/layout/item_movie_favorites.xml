@@ -14,6 +14,7 @@
         <variable
             name="item"
             type="com.happymoonday.challengesforheymoon.domain.model.Movie" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -27,10 +28,10 @@
             android:id="@+id/imagePoster"
             android:layout_width="@dimen/favoriteMovieItemPosterW"
             android:layout_height="@dimen/favoriteMovieItemPosterH"
+            app:imageUrl="@{item.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:imageUrl="@{item.image}"
             tools:srcCompat="@drawable/ic_baseline_movie_10" />
 
         <TextView
@@ -58,6 +59,7 @@
             android:layout_marginTop="@dimen/favoriteMovieItemPosterMargin"
             android:ellipsize="end"
             android:maxLines="1"
+            android:text="@{Html.fromHtml(@string/favorite_movie_rating(item.userRating))}"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toTopOf="@id/textMovieDirector"
             app:layout_constraintEnd_toEndOf="parent"
@@ -65,7 +67,6 @@
             app:layout_constraintStart_toEndOf="@id/imagePoster"
             app:layout_constraintTop_toBottomOf="@id/textMovieTitle"
             app:layout_constraintVertical_chainStyle="spread"
-            android:text="@{Html.fromHtml(@string/favorite_movie_rating(item.userRating))}"
             tools:text="평점 8.21" />
 
         <TextView
@@ -75,6 +76,7 @@
             android:layout_marginStart="@dimen/favoriteMovieItemPosterMargin"
             android:ellipsize="end"
             android:maxLines="1"
+            android:text="@{@string/favorite_movie_director(item.formatDirector)}"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toTopOf="@id/textMovieActor"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +84,6 @@
             app:layout_constraintStart_toEndOf="@id/imagePoster"
             app:layout_constraintTop_toBottomOf="@id/textMovieRating"
             app:layout_constraintVertical_chainStyle="spread"
-            android:text="@{@string/favorite_movie_director(item.formatDirector)}"
             tools:text="감독 늘" />
 
         <TextView
@@ -90,17 +91,17 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/favoriteMovieItemPosterMargin"
+            android:layout_marginBottom="@dimen/favoriteMovieItemPosterMargin"
             android:ellipsize="end"
             android:maxLines="2"
+            android:text="@{@string/favorite_movie_actor(item.formatActor)}"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
-            android:layout_marginBottom="@dimen/favoriteMovieItemPosterMargin"
             app:layout_constraintStart_toEndOf="@id/imagePoster"
             app:layout_constraintTop_toBottomOf="@id/textMovieDirector"
             app:layout_constraintVertical_chainStyle="spread"
-            android:text="@{@string/favorite_movie_actor(item.formatActor)}"
             tools:text="출연 정보 김하|윌 패튼|스티븐 연|한예리|윤여정|앨런 김|노엘 조|김하|윌 패튼|스티븐 연" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

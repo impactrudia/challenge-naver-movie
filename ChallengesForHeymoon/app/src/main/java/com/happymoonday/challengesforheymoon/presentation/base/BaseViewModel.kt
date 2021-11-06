@@ -7,12 +7,12 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.addTo
 
-open class BaseViewModel : ViewModel() {
+open class BaseViewModel: ViewModel() {
 
     @JvmField
     val showProgress = MutableLiveData<Boolean>()
     protected val repository = MovieRepository.getInstance()
-    var onDestroyDisposable = CompositeDisposable()
+    private var onDestroyDisposable = CompositeDisposable()
 
     fun showProgress() {
         showProgress.value = true
@@ -32,10 +32,5 @@ open class BaseViewModel : ViewModel() {
 }
 
 typealias TypeCallback<T> = (T) -> Unit
-
-/**
- * 실패에 대한 익명함수를 타입화
- */
-typealias EmptyCallback = (() -> Unit)?
 
 typealias StringCallback = ((String?) -> Unit)?

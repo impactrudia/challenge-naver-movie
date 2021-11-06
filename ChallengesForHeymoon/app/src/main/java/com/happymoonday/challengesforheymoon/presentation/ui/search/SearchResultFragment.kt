@@ -50,7 +50,12 @@ class SearchResultFragment : BaseFragment() {
                 requireActivity().finish()
             }
 
-            recyclerView.addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
+            recyclerView.addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.VERTICAL
+                )
+            )
             recyclerView.adapter = adapter
 
             subscribeUi(adapter)
@@ -73,7 +78,7 @@ class SearchResultFragment : BaseFragment() {
         CustomDialog.showDefaultDialog(
             requireContext(),
             getString(R.string.are_you_sure_you_want_to_add_this_movie_to_your_favorites),
-            callbackLeft={
+            callbackLeft = {
             },
             callbackRight = {
                 if (movie != null) {

@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import com.happymoonday.challengesforheymoon.R
 
 enum class GenreType(val id: Int, @StringRes val toDescription: Int) {
+
     DRAMA(1, R.string.genre_drama),
     FANTASY(2, R.string.genre_fantasy),
     WEST(3, R.string.genre_west),
@@ -38,4 +39,5 @@ enum class GenreType(val id: Int, @StringRes val toDescription: Int) {
             return values().toList()
         }
     }
+
 }

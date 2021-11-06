@@ -17,6 +17,7 @@ import java.util.concurrent.TimeUnit
  * 네트워크 기본 상태 설정하는 모듈
  */
 class ServiceFactory {
+
     companion object {
         const val HOST_URL = "https://openapi.naver.com"
         const val CLIENT_ID = NaverConstants.CLIENT_ID
@@ -74,4 +75,5 @@ class ServiceFactory {
     private fun getLoggingInterceptor() = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
+
 }

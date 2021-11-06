@@ -24,11 +24,17 @@ class SearchKeywordSummaryFragment : BaseFragment() {
 
         binding.apply {
             viewModel.reqMovie?.let {
-                textSummary.text = getString(R.string.search_keyword_summary, it.keyword, getString(it.genre?.toDescription?:-1), getString(it.nation?.toDescription?:-1))
+                textSummary.text = getString(
+                    R.string.search_keyword_summary,
+                    it.keyword,
+                    getString(it.genre?.toDescription ?: -1),
+                    getString(it.nation?.toDescription ?: -1)
+                )
             }
 
             btnSearchMovie.setOnClickListener {
-                val action = SearchKeywordSummaryFragmentDirections.actionFragmentKeywordSummaryToFragmentKeywordResults()
+                val action =
+                    SearchKeywordSummaryFragmentDirections.actionFragmentKeywordSummaryToFragmentKeywordResults()
                 findNavController().navigate(action)
             }
         }

@@ -10,7 +10,6 @@ import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.ChooseGenreAdapter
 import com.happymoonday.challengesforheymoon.data.constants.Constants
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseGenreBinding
-import com.happymoonday.challengesforheymoon.data.constants.Constants.BUNDLE_KEYWORD
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
 import com.happymoonday.challengesforheymoon.viewmodels.SearchViewModel
 
@@ -31,11 +30,6 @@ class ChooseGenreFragment : BaseFragment() {
         findNavController().navigate(action)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.get(BUNDLE_KEYWORD).toString()
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,7 +37,8 @@ class ChooseGenreFragment : BaseFragment() {
         binding = FragmentChooseGenreBinding.inflate(inflater, container, false)
 
         binding.apply {
-            viewModel.reqMovie?.keyword = requireActivity().intent.extras?.getString(Constants.BUNDLE_KEYWORD, "")
+            viewModel.reqMovie?.keyword =
+                requireActivity().intent.extras?.getString(Constants.BUNDLE_KEYWORD, "")
             textTitle.text = getString(R.string.msg_result_search_term, viewModel.reqMovie?.keyword)
 
             recyclerView.adapter = adapter

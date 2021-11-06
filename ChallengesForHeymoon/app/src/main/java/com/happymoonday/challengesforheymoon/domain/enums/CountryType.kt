@@ -4,6 +4,7 @@ import androidx.annotation.StringRes
 import com.happymoonday.challengesforheymoon.R
 
 enum class CountryType(val id: String, @StringRes val toDescription: Int) {
+
     KOREA("KR", R.string.country_korea),
     JAPAN("JP", R.string.country_japan),
     UNITED_STATES("US", R.string.country_united_states),
@@ -17,4 +18,5 @@ enum class CountryType(val id: String, @StringRes val toDescription: Int) {
             return values().toList()
         }
     }
+
 }

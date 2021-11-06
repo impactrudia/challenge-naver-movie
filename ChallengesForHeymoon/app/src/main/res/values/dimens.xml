@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <dimen name="textMarginHorizontalDefault">20dp</dimen>
     <dimen name="textMarginTopDefault">30dp</dimen>
     <dimen name="buttonHeightDefault">56dp</dimen>
@@ -10,4 +11,5 @@
     <dimen name="favoriteMovieItemPosterW">70dp</dimen>
     <dimen name="favoriteMovieItemPosterH">100dp</dimen>
     <dimen name="favoriteMovieItemPosterMargin">20dp</dimen>
+
 </resources>

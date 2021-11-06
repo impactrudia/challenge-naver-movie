@@ -25,8 +25,9 @@ class ChooseNationFragment : BaseFragment() {
         }
     }
 
-    private fun navigateToNation(){
-        val action = ChooseNationFragmentDirections.actionFragmentChooseNationToFragmentKeywordSummary()
+    private fun navigateToNation() {
+        val action =
+            ChooseNationFragmentDirections.actionFragmentChooseNationToFragmentKeywordSummary()
         findNavController().navigate(action)
     }
 
@@ -37,7 +38,10 @@ class ChooseNationFragment : BaseFragment() {
         binding = FragmentChooseNationBinding.inflate(inflater, container, false)
 
         binding.apply {
-            textTitle.text = getString(R.string.msg_result_select_country, getString(viewModel.reqMovie?.genre?.toDescription?:-1))
+            textTitle.text = getString(
+                R.string.msg_result_select_country,
+                getString(viewModel.reqMovie?.genre?.toDescription ?: -1)
+            )
 
             recyclerView.adapter = adapter
 

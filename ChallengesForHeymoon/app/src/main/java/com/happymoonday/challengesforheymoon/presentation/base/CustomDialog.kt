@@ -2,14 +2,14 @@ package com.happymoonday.challengesforheymoon.presentation.base
 
 import android.content.Context
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatDialog
 import com.happymoonday.challengesforheymoon.R
 
 /**
  * 다이얼로그 팝업
  */
 object CustomDialog {
-    var popup: AlertDialog? = null
+
+    private var popup: AlertDialog? = null
 
     fun showDefaultDialog(
         context: Context,

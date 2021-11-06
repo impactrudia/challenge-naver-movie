@@ -11,7 +11,7 @@ import com.happymoonday.challengesforheymoon.presentation.ui.home.HomeActivity
 class SplashActivity : BaseActivity() {
 
     companion object {
-        private const val SPLASH_DELAY : Long = 1500
+        private const val SPLASH_DELAY: Long = 1500
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

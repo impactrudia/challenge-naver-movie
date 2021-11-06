@@ -4,32 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="clickListener"
-            type="android.view.View.OnClickListener"/>
+            type="android.view.View.OnClickListener" />
+
         <variable
             name="item"
             type="com.happymoonday.challengesforheymoon.domain.enums.GenreType" />
+
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-        android:onClick="@{clickListener}"
-        android:layout_marginTop="@dimen/textMarginHorizontalDefault"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/textMarginHorizontalDefault"
+        android:layout_marginTop="@dimen/textMarginHorizontalDefault"
+        android:onClick="@{clickListener}"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/itemHeightDefault"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:resourceToString="@{item.toDescription}"
-            android:textColor="@color/xml_selector_text_search_round_rect"
+            android:layout_gravity="center"
             android:background="@drawable/xml_selector_search_round_rect"
             android:gravity="center"
-            android:layout_gravity="center"
-            tools:text="genre"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/xml_selector_text_search_round_rect"
+            app:resourceToString="@{item.toDescription}"
+            tools:text="genre" />
 
     </LinearLayout>
 

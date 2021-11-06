@@ -1,10 +1,11 @@
-package com.happymoonday.challengesforheymoon.domain.response
+package com.happymoonday.challengesforheymoon.data.network.response
 
 
 /**
- * 네트워크 공통 클래스
+ * 네트워크 공통 클래 도메인 아님
  */
 class BaseResponse<T> : ResponseImpl {
+
     override val errorMessage: String? = null
     override val errorCode: String? = null
     override val status: String? = null
@@ -13,5 +14,4 @@ class BaseResponse<T> : ResponseImpl {
     val start: Int? = 0
     val display: Int? = 0
 
-    constructor() {}
 }

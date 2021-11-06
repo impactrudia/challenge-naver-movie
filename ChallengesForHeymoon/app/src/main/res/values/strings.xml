@@ -1,4 +1,5 @@
 <resources>
+
     <string name="app_name">영화 즐겨찾기</string>
     <string name="movie_search_favorites">영화검색 즐겨찾기</string>
     <string name="enter_search_term">검색어 입력</string>
@@ -67,4 +68,5 @@
     <string name="favorite_movie_actor">출연 정보 %s</string>
     <string name="please_enter_a_search_term">검색어를 입력해주세요.</string>
     <string name="confirm">확인</string>
+
 </resources>

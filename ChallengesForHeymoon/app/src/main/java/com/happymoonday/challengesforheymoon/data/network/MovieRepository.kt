@@ -1,6 +1,6 @@
 package com.happymoonday.challengesforheymoon.data.network
 
-import com.happymoonday.challengesforheymoon.domain.model.reqeuest.ReqMovie
+import com.happymoonday.challengesforheymoon.data.network.reqeuest.ReqMovie
 import io.reactivex.android.schedulers.AndroidSchedulers
 
 /**

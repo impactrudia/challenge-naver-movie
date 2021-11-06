@@ -10,6 +10,7 @@ import com.happymoonday.challengesforheymoon.domain.model.Movie
  */
 @Dao
 interface MovieDao {
+
     @Query("select * from movie")
     suspend fun getAll(): List<Movie>
 
@@ -18,4 +19,5 @@ interface MovieDao {
 
     @Query("DELETE FROM movie WHERE uuid = :uuid")
     fun deleteByUuid(uuid: Int)
+
 }

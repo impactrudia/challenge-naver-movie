@@ -3,8 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data></data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,36 +10,36 @@
 
         <TextView
             android:id="@+id/textTitle"
-            android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="@dimen/textMarginTopDefault"
             android:layout_marginHorizontal="@dimen/textMarginHorizontalDefault"
-            android:text="@string/information_summary_screen"/>
+            android:layout_marginTop="@dimen/textMarginTopDefault"
+            android:text="@string/information_summary_screen"
+            android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textSummary"
-            android:textAppearance="@android:style/TextAppearance.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/textMarginTopDefault"
             android:layout_marginHorizontal="@dimen/textMarginHorizontalDefault"
-            app:layout_constraintTop_toBottomOf="@id/textTitle"
+            android:layout_marginTop="@dimen/textMarginTopDefault"
+            android:textAppearance="@android:style/TextAppearance.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            tools:text="- 입력한 검색어 : \n- 선택한 장르 : \n- 선택한 국가 :"/>
+            app:layout_constraintTop_toBottomOf="@id/textTitle"
+            tools:text="- 입력한 검색어 : \n- 선택한 장르 : \n- 선택한 국가 :" />
 
         <Button
             android:id="@+id/btnSearchMovie"
             android:layout_width="match_parent"
             android:layout_height="@dimen/buttonHeightDefault"
-            android:textAppearance="@android:style/TextAppearance.Medium"
             android:layout_marginTop="@dimen/textMarginTopDefault"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/search_for_movies"
+            android:textAppearance="@android:style/TextAppearance.Medium"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:text="@string/search_for_movies"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
