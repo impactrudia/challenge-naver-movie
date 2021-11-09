@@ -12,15 +12,15 @@ import com.happymoonday.challengesforheymoon.databinding.ItemChooseNationBinding
 import com.happymoonday.challengesforheymoon.domain.enums.CountryType
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
 
+const val VIEW_TYPE_GENRE: Int = 0
+const val VIEW_TYPE_COUNTRY: Int = 1
+
 class ChooseCommonAdapter(
     private val onClick: (Any) -> Unit
 ) : ListAdapter<Any, RecyclerView.ViewHolder>(ChooseDiffCallback()) {
 
-    private val viewTypeCountry: Int = 0
-    private val viewTypeGenre: Int = 1
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        if (viewType == viewTypeGenre) {
+        if (viewType == VIEW_TYPE_GENRE) {
             return ChooseGenreViewHolder(
                 DataBindingUtil.inflate(
                     LayoutInflater.from(parent.context),
@@ -55,9 +55,9 @@ class ChooseCommonAdapter(
     override fun getItemViewType(position: Int): Int {
         val item = getItem(position)
         if (item is GenreType) {
-            return viewTypeGenre
+            return VIEW_TYPE_GENRE
         }
-        return viewTypeCountry
+        return VIEW_TYPE_COUNTRY
     }
 
     class ChooseGenreViewHolder(
