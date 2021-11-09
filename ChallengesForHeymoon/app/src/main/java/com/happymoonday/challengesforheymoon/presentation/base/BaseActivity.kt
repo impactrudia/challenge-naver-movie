@@ -15,9 +15,8 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         progressDialog = AppCompatDialog(this, R.style.Theme_ProgressBar)
-        progressDialog!!.setCancelable(false)//유저인터렉션 막는게 문제.
-        progressDialog!!.setContentView(R.layout.dialog_progress)
-        progressDialog!!.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        progressDialog?.setContentView(R.layout.dialog_progress)
+        progressDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
 
     open fun showProgress() {
