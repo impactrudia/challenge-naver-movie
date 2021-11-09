@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
-import com.happymoonday.challengesforheymoon.adapters.ChooseGenreAdapter
+import com.happymoonday.challengesforheymoon.adapters.ChooseCommonAdapter
 import com.happymoonday.challengesforheymoon.data.constants.Constants
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseGenreBinding
+import com.happymoonday.challengesforheymoon.domain.enums.GenreType
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
 import com.happymoonday.challengesforheymoon.viewmodels.SearchViewModel
 
@@ -19,8 +20,10 @@ class ChooseGenreFragment : BaseFragment() {
     override val viewModel: SearchViewModel by navGraphViewModels(R.id.nav_graph_search_xml)
 
     private val adapter by lazy {
-        ChooseGenreAdapter {
-            viewModel.reqMovie?.genre = it
+        ChooseCommonAdapter {
+            if(it is GenreType){
+                viewModel.reqMovie?.genre = it
+            }
             navigateToNation()
         }
     }
@@ -54,7 +57,7 @@ class ChooseGenreFragment : BaseFragment() {
         binding.lifecycleOwner = viewLifecycleOwner
     }
 
-    private fun subscribeUi(adapter: ChooseGenreAdapter) {
+    private fun subscribeUi(adapter: ChooseCommonAdapter) {
         viewModel.genres.observe(viewLifecycleOwner) { results ->
             adapter.submitList(results)
         }

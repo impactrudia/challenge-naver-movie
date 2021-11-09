@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
 import androidx.navigation.fragment.findNavController
-import com.happymoonday.challengesforheymoon.adapters.ChooseNationAdapter
+import com.happymoonday.challengesforheymoon.adapters.ChooseCommonAdapter
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseNationBinding
 import com.happymoonday.challengesforheymoon.domain.enums.CountryType
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
@@ -19,8 +19,10 @@ class ChooseNationFragment : BaseFragment() {
     override val viewModel: SearchViewModel by navGraphViewModels(R.id.nav_graph_search_xml)
 
     private val adapter by lazy {
-        ChooseNationAdapter {
-            viewModel.reqMovie?.nation = it
+        ChooseCommonAdapter {
+            if(it is CountryType){
+                viewModel.reqMovie?.nation = it
+            }
             navigateToNation()
         }
     }
@@ -56,7 +58,7 @@ class ChooseNationFragment : BaseFragment() {
         binding.lifecycleOwner = viewLifecycleOwner
     }
 
-    private fun subscribeUi(adapter: ChooseNationAdapter) {
+    private fun subscribeUi(adapter: ChooseCommonAdapter) {
         val items = CountryType.findNationTypeList()
         adapter.submitList(items)
 
