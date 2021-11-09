@@ -2,12 +2,14 @@ package com.happymoonday.challengesforheymoon.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import java.io.Serializable
 
 
 @Entity
 data class Movie(
-    val link: String,
+    val link: String?,
     val title: String?,
     val image: String?,
     val subtitle: String?,
@@ -16,6 +18,7 @@ data class Movie(
     val actor: String?,
     val userRating: String?
 ) : Serializable {
+
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0
 
@@ -39,4 +42,5 @@ data class Movie(
     fun formatActor(): String? {
         return removeSeparator(actor)
     }
+
 }

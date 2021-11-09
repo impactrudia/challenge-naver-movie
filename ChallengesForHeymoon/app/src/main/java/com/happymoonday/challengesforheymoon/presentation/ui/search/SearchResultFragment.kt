@@ -10,9 +10,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.room.Room
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.SearchMovieAdapter
-import com.happymoonday.challengesforheymoon.databinding.FragmentSearchResultsBinding
 import com.happymoonday.challengesforheymoon.data.constants.Constants
 import com.happymoonday.challengesforheymoon.data.database.AppDatabase
+import com.happymoonday.challengesforheymoon.databinding.FragmentSearchResultsBinding
 import com.happymoonday.challengesforheymoon.domain.model.Movie
 import com.happymoonday.challengesforheymoon.presentation.base.BaseFragment
 import com.happymoonday.challengesforheymoon.presentation.base.CustomDialog
@@ -36,6 +36,7 @@ class SearchResultFragment : BaseFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         db = Room.databaseBuilder(requireContext(), AppDatabase::class.java, Constants.MOVIE_DB)
+            .fallbackToDestructiveMigration()
             .build()
     }
 
