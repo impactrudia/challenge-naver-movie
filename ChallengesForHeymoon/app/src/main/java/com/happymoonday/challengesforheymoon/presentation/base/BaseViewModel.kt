@@ -7,7 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.addTo
 
-open class BaseViewModel: ViewModel() {
+open class BaseViewModel : ViewModel() {
 
     @JvmField
     val showProgress = MutableLiveData<Boolean>()

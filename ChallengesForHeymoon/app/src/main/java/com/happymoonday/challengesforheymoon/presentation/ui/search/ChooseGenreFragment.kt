@@ -21,7 +21,7 @@ class ChooseGenreFragment : BaseFragment() {
 
     private val adapter by lazy {
         ChooseCommonAdapter {
-            if(it is GenreType){
+            if (it is GenreType) {
                 viewModel.reqMovie?.genre = it
             }
             navigateToNation()

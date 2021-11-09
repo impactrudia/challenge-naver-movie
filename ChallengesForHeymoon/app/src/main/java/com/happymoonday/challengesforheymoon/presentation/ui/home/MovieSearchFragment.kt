@@ -3,18 +3,17 @@ package com.happymoonday.challengesforheymoon.presentation.ui.home
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.happymoonday.challengesforheymoon.R
 import com.happymoonday.challengesforheymoon.adapters.MOVIE_FAVORITES_PAGE_INDEX
-import com.happymoonday.challengesforheymoon.databinding.FragmentMovieSearchBinding
 import com.happymoonday.challengesforheymoon.data.constants.Constants
-import com.happymoonday.challengesforheymoon.domain.model.Movie
+import com.happymoonday.challengesforheymoon.databinding.FragmentMovieSearchBinding
 import com.happymoonday.challengesforheymoon.presentation.base.CustomDialog
 import com.happymoonday.challengesforheymoon.presentation.ui.search.SearchActivity
 

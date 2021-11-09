@@ -2,11 +2,11 @@ package com.happymoonday.challengesforheymoon.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
+import com.happymoonday.challengesforheymoon.data.network.reqeuest.ReqMovie
+import com.happymoonday.challengesforheymoon.data.network.response.BaseResponse
 import com.happymoonday.challengesforheymoon.domain.enums.CountryType
 import com.happymoonday.challengesforheymoon.domain.enums.GenreType
 import com.happymoonday.challengesforheymoon.domain.model.Movie
-import com.happymoonday.challengesforheymoon.data.network.reqeuest.ReqMovie
-import com.happymoonday.challengesforheymoon.data.network.response.BaseResponse
 import com.happymoonday.challengesforheymoon.presentation.base.BaseViewModel
 import com.happymoonday.challengesforheymoon.presentation.base.StringCallback
 import com.happymoonday.challengesforheymoon.presentation.base.TypeCallback

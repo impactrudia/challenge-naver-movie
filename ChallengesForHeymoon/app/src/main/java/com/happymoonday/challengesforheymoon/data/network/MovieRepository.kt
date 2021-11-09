@@ -21,7 +21,8 @@ class MovieRepository private constructor() {
         ServiceFactory().getOrganApi()
     }
 
-    fun searchMovies(reqMovie: ReqMovie?) = organApi.searchMovies(reqMovie?.keyword?:"", reqMovie?.genre?.id, reqMovie?.nation?.id)
-        .observeOn(AndroidSchedulers.mainThread())
+    fun searchMovies(reqMovie: ReqMovie?) =
+        organApi.searchMovies(reqMovie?.keyword ?: "", reqMovie?.genre?.id, reqMovie?.nation?.id)
+            .observeOn(AndroidSchedulers.mainThread())
 
 }

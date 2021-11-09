@@ -6,7 +6,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 
-abstract class BaseFragment: Fragment() {
+abstract class BaseFragment : Fragment() {
     /**
      * lateinit var 키워드로 생성해준다.
      */

@@ -2,8 +2,8 @@ package com.happymoonday.challengesforheymoon.presentation.ui.movieinfo
 
 import android.os.Bundle
 import android.webkit.WebViewClient
-import com.happymoonday.challengesforheymoon.databinding.ActivityMovieInfoBinding
 import com.happymoonday.challengesforheymoon.data.constants.Constants
+import com.happymoonday.challengesforheymoon.databinding.ActivityMovieInfoBinding
 import com.happymoonday.challengesforheymoon.presentation.base.BaseActivity
 
 class MovieInfoActivity : BaseActivity() {

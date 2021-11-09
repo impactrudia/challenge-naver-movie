@@ -2,8 +2,8 @@ package com.happymoonday.challengesforheymoon.presentation.base
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import com.happymoonday.challengesforheymoon.R
 

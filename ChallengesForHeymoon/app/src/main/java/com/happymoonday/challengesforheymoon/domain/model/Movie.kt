@@ -2,8 +2,6 @@ package com.happymoonday.challengesforheymoon.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.migration.Migration
-import androidx.sqlite.db.SupportSQLiteDatabase
 import java.io.Serializable
 
 

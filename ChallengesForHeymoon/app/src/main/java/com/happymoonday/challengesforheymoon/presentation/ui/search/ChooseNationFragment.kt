@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import com.happymoonday.challengesforheymoon.R
-import androidx.navigation.fragment.findNavController
 import com.happymoonday.challengesforheymoon.adapters.ChooseCommonAdapter
 import com.happymoonday.challengesforheymoon.databinding.FragmentChooseNationBinding
 import com.happymoonday.challengesforheymoon.domain.enums.CountryType
@@ -20,7 +20,7 @@ class ChooseNationFragment : BaseFragment() {
 
     private val adapter by lazy {
         ChooseCommonAdapter {
-            if(it is CountryType){
+            if (it is CountryType) {
                 viewModel.reqMovie?.nation = it
             }
             navigateToNation()

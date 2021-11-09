@@ -37,7 +37,7 @@ class SearchMovieAdapter(
         private val binding: ItemMovieFavoritesBinding,
         private val onClick: (Movie) -> Unit,
         private val onLongClick: (Movie) -> Unit
-    ) : RecyclerView.ViewHolder(binding.root){
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) {
             with(binding) {
