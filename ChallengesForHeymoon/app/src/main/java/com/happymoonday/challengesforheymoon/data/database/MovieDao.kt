@@ -11,7 +11,7 @@ import com.happymoonday.challengesforheymoon.domain.model.Movie
 @Dao
 interface MovieDao {
 
-    @Query("select * from movie")
+    @Query("SELECT * FROM movie")
     suspend fun getAll(): List<Movie>
 
     @Insert
