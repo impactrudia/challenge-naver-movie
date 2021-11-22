@@ -60,7 +60,7 @@ class FavoriteMoviesFragment : Fragment() {
     }
 
     private fun getAllMovie() {
-        CoroutineScope(Dispatchers.Default).launch {
+        CoroutineScope(Dispatchers.Default).launch {//TODO FIX 코루틴 학습 필요.
             val movies = db.movieDao().getAll()
             requireActivity().runOnUiThread {
                 if (isAdded) {
