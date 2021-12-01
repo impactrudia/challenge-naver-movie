@@ -1,8 +1,8 @@
 
-# ChallengesForHeyMoon
-헤이문 입사 과제
+# challenge-naver-movie
+네이버 Rest API 이용하여 영화 검색하는 기능
 
-## 과제 영상
+## 시연 영상
 - [영상으로 보기](https://youtube.com/shorts/FBtmIc6WgWY?feature=share)
 
 ## 시나리오 외에 추가한 기능
